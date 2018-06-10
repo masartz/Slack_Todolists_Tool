@@ -1,0 +1,18 @@
+return +{
+    slack_token    => 'xxxx',
+    channel_id     => 'yyyy',
+    reminder_title => qr/\AReminder: hoge moge/,
+    channel_count  => 1000,
+    name_mapping   => {
+        U111111 => '',
+        U222222 => '',
+        U333333 => '',
+    },
+    db_config => {
+        host     => '',
+        database => '',
+        port     => '',
+        user     => '',
+        pass     => ''
+    }
+};
