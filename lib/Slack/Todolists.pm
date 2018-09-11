@@ -76,7 +76,11 @@ sub get_thread_message{
     my $todolists = {};
     for my $content ( @{$ret_content->{messages}}){
         next if $self->is_reminder_title($content->{text});
-        $todolists->{ $content->{user} } = Encode::encode_utf8($content->{text});
+        if( exists $todolists->{ $content->{user} } ){
+            $todolists->{ $content->{user} } .= Encode::encode_utf8($content->{text});
+        }else{
+            $todolists->{ $content->{user} } = Encode::encode_utf8($content->{text});
+        }
     }
 
     return $todolists;
